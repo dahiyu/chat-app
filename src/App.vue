@@ -19,13 +19,7 @@
     </transition-group>
   
     <!-- 入力フォーム -->
-    <form action="" @submit.prevent="doSend" class="form">
-      <textarea
-        v-model="input"
-        :disabled="!user.uid"
-        @keydown.enter.exact.prevent="doSend"></textarea>
-      <button type="submit" :disabled="!user.uid" class="send-button">Send</button>
-    </form>
+    <Form v-bind="user"></Form>
   </div>
   <!-- <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
@@ -37,15 +31,16 @@
 // firebase モジュール
 import firebase from 'firebase'
 import Message from './components/Message.vue'
+import Form from './components/Form.vue'
 export default {
   components: {
-    Message
+    Message,
+    Form
   },
   data() {
     return {
       user: {},  // ユーザー情報
       chat: [],  // 取得したメッセージを入れる配列
-      input: ''  // 入力したメッセージ
     }
   },
   created() {
@@ -92,18 +87,6 @@ export default {
         message: message.message
       })
       this.scrollBottom()
-    },
-    doSend() {
-      if (this.user.uid && this.input.length) {
-        // firebase にメッセージを追加
-        firebase.database().ref('message').push({
-          message: this.input,
-          name: this.user.displayName,
-          image: this.user.photoURL
-        }, () => {
-          this.input = '' // フォームを空にする
-        })
-      }
     }
   }
 }
@@ -133,28 +116,8 @@ export default {
   padding: 0 10px;
   max-width: 600px;
 }
-.form {
-  position: fixed;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  bottom: 0;
-  height: 80px;
-  width: 100%;
-  background: #f5f5f5;
-}
-.form textarea {
-  border: 1px solid #ccc;
-  border-radius: 2px;
-  height: 4em;
-  width: calc(100% - 6em);
-  resize: none;
-}
 .list {
   margin-bottom: 100px;
-}
-.send-button {
-  height: 4em;
 }
 /* トランジション用スタイル */
 .chat-enter-active {
