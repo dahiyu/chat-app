@@ -17,7 +17,7 @@ export default {
     }
   },
   methods: {
-    doSend: function() {
+    doSend() {
       if (this.uid && this.input.length) {
         // firebase にメッセージを追加
         firebase.database().ref('message').push({
