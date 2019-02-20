@@ -76,6 +76,7 @@ export default {
   margin: 0 auto;
   padding: 0 10px;
   max-width: 600px;
+  background-color: #7193c1;
 }
 .list {
   margin-bottom: 100px;

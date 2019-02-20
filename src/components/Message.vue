@@ -45,7 +45,8 @@ export default {
   position: relative;
   display: inline-block;
   padding: 0.8em;
-  background: #deefe8;
+  /* background: #deefe8; */
+  background: #84e248;
   border-radius: 4px;
   line-height: 1.2em;
 }
@@ -56,6 +57,7 @@ export default {
   left: -16px;
   bottom: 12px;
   border: 4px solid transparent;
-  border-right: 12px solid #deefe8;
+  /* border-right: 12px solid #deefe8; */
+  border-right: 12px solid #84e248;
 }
 </style>
