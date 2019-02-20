@@ -36,12 +36,9 @@
 <script>
 // firebase モジュール
 import firebase from 'firebase'
-// 改行を <br> タグに変換するモジュール
-import Nl2br from 'vue-nl2br'
 import Message from './components/Message.vue'
 export default {
   components: {
-    Nl2br,
     Message
   },
   data() {

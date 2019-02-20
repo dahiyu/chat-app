@@ -11,7 +11,13 @@
 </template>
 
 <script>
+// 改行を <br> タグに変換するモジュール
+import Nl2br from 'vue-nl2br'
+
 export default {
+  components: {
+    Nl2br
+  },
   name: 'Message',
   props: ['key', 'name', 'image', 'message']
 }
