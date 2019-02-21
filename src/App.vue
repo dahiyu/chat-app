@@ -1,19 +1,16 @@
 <template>
   <div id="app">
     <Header v-bind="user"></Header>
-
     <!--　Firebase から取得したリストを描画（トランジション付き）　-->
     <transition-group v-if="user.uid" name="chat" tag="div" class="list content">
       <Message v-for="c in chat" v-bind="c" v-bind:key="c.key"></Message>
     </transition-group>
-
     <!-- 入力フォーム -->
-    <Form v-bind="user"></Form>
+    <Form v-if="user.uid" v-bind="user"></Form>
   </div>
 </template>
 
 <script>
-// firebase モジュール
 import firebase from 'firebase'
 import Header from './components/Header.vue'
 import Message from './components/Message.vue'

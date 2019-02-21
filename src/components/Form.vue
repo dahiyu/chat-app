@@ -6,20 +6,18 @@
 </template>
 
 <script>
-// firebase モジュール
 import firebase from 'firebase'
 export default {
   name: 'Form',
   props: ['uid', 'displayName', 'photoURL'],
   data() {
     return {
-      input: '' // 入力したメッセージ
+      input: ''
     }
   },
   methods: {
     doSend() {
       if (this.uid && this.input.length) {
-        // firebase にメッセージを追加
         firebase.database().ref('message').push({
           message: this.input,
           name: this.displayName,
@@ -33,7 +31,6 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .form {
   position: fixed;
