@@ -3,8 +3,9 @@
     <h1>Chat</h1>
     <!-- ログイン時にはフォームとログアウトボタンを表示 -->
     <div v-if="uid" key="login">
-      [{{ displayName }}]
-      <button type="button" @click="doLogout">ログアウト</button>
+      <!-- [{{ displayName }}] -->
+      <div class="icon"><img :src="photoURL" width="40" height="40"></div>
+      <button type="button" @click="doLogout" class="logout-button">ログアウト</button>
     </div>
     <!-- 未ログイン時にはログインボタンを表示 -->
     <div v-else key="logout">
@@ -35,9 +36,15 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .header {
-  background: #3ab383;
-  margin-bottom: 1em;
+  background: #f5f5f5;
   padding: 0.4em 0.8em;
-  color: #fff;
+}
+.icon img {
+  float: left;
+  border-radius: 20px;
+  vertical-align: top;
+}
+.logout-button {
+  margin: 7px 0px 0px 10px;
 }
 </style>

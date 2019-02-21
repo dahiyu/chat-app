@@ -19,7 +19,7 @@ export default {
     Nl2br
   },
   name: 'Message',
-  props: ['key', 'name', 'image', 'message']
+  props: ['name', 'image', 'message']
 }
 </script>
 

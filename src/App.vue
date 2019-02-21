@@ -3,10 +3,10 @@
     <Header v-bind="user"></Header>
 
     <!--　Firebase から取得したリストを描画（トランジション付き）　-->
-    <transition-group name="chat" tag="div" class="list content">
+    <transition-group v-if="user.uid" name="chat" tag="div" class="list content">
       <Message v-for="c in chat" v-bind="c" v-bind:key="c.key"></Message>
     </transition-group>
-  
+
     <!-- 入力フォーム -->
     <Form v-bind="user"></Form>
   </div>
@@ -74,12 +74,12 @@ export default {
 }
 .content {
   margin: 0 auto;
-  padding: 0 10px;
+  padding: 10px 10px;
   max-width: 600px;
   background-color: #7193c1;
 }
 .list {
-  margin-bottom: 100px;
+  margin-bottom: 80px;
 }
 /* トランジション用スタイル */
 .chat-enter-active {
